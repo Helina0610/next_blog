@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/AppSidebar";
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 //const geistSans = Geist({
 //  variable: "--font-geist-sans",
@@ -29,11 +30,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-					<Header/>
-					<main className="flex-1 px-6 py-4 mx-auto w-full">
-						{children}
-					</main>
-					<Footer/>
+					<SidebarProvider>
+						<AppSidebar/>
+						<SidebarInset>
+						<Header/>
+						<main>
+							{children}
+						</main>
+						</SidebarInset>
+					</SidebarProvider>
 				</ThemeProvider>
       </body>
     </html>

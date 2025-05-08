@@ -1,11 +1,14 @@
-import Link from "next/link";
+
 import { ModeToggle } from "../ui/ModeToggle";
+import { SidebarTrigger } from "../ui/sidebar";
 
 export default function Header() {
   return (
-    <header className="w-full border-b py-4 px-6 flex justify-between items-center bg-background ">
-      <Link href="/" className="text-xl font-bold">HJ Blog</Link>
-			<ModeToggle />
-    </header>
+		<header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
+			<SidebarTrigger className="-ml-1" />
+			<div className="ml-auto flex items-center gap-2">
+				<ModeToggle />
+			</div>
+		</header>
   );
 }
