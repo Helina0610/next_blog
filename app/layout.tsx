@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/utils/theme-provider";
+import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
       <body>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					<Header/>
-					<main className="flex-1 px-6 py-4 max-w-3xl mx-auto w-full">
+					<main className="flex-1 px-6 py-4 mx-auto w-full">
 						{children}
 					</main>
 					<Footer/>
